@@ -32,12 +32,6 @@ tasks:
     cmds:
       - hugo server --config hugo.toml,hugo-purple.toml -D --navigateToChanged
 
-  start:dropdown:
-    desc: Start development server with dropdown navigation test
-    dir: example
-    cmds:
-      - hugo server --config hugo.toml,hugo-dropdown.toml -D --navigateToChanged
-
   build:
     desc: Build production site
     cmds:

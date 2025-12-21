@@ -10,7 +10,6 @@ A modern, responsive Hugo theme with beautiful gradient backgrounds and glassmor
 - **📱 Responsive Layout**: Adapts perfectly to desktop, tablet, and mobile
 - **🎯 Content-Focused**: Typography and layout optimized for reading
 - **🎛️ Highly Configurable**: Easy customization of colors, fonts, and features
-- **🌍 i18n Support**: Multi-language support built-in
 - **♿ Accessibility**: WCAG compliant design patterns
 - **🏷️ Categories**: Organized content navigation
 - **🔗 Social Integration**: Built-in social media links
