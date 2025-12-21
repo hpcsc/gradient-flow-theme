@@ -190,57 +190,7 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Social Links */
-.social-links {
-    display: flex;
-    gap: 0.8rem;
-    margin-top: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
-.social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--card-background);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    transition: all var(--transition-speed) ease;
-    color: var(--text-color);
-}
-
-.social-link:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-color: var(--primary-color);
-}
-
-.social-link svg {
-    width: 20px;
-    height: 20px;
-    transition: color 0.2s ease;
-}
-
-.social-link:hover svg {
-    color: var(--primary-color);
-}
-
-.social-link--github:hover svg {
-    color: #ffffff;
-}
-
-.social-link--linkedin:hover svg {
-    color: #0077b5;
-}
-
-.social-link--codeproject:hover svg {
-    color: #ff9900;
-}
 
 .nav-list {
     list-style: none;
@@ -266,11 +216,7 @@ body {
     transform: translateX(5px);
 }
 
-/* Header Components */
-.site-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
+
 
 .site-title {
     font-size: 2.5rem;
@@ -279,10 +225,7 @@ body {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.tagline {
-    font-size: 1.1rem;
-    color: var(--muted-text);
-}
+
 
 .main-nav {
     display: flex;
@@ -309,14 +252,7 @@ body {
     transform: translateY(-2px);
 }
 
-.nav-link--home {
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.15);
-}
 
-.nav-link--home:hover {
-    background: var(--card-border);
-}
 
 .nav-link.active {
     background: var(--primary-color);
@@ -1047,7 +983,7 @@ body {
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 #disqus_thread {
@@ -1172,10 +1108,6 @@ body {
         margin-top: 2rem;
     }
     
-    .site-title {
-        font-size: 2rem;
-    }
-    
     .post-header .post-title {
         font-size: 2.2rem;
     }
@@ -1196,10 +1128,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .site-title {
-        font-size: 1.8rem;
-    }
-    
     .post-header .post-title {
         font-size: 1.8rem;
     }

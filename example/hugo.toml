@@ -7,11 +7,6 @@ theme = '../..'
     # Site Configuration
     author.name = "John Doe"
     author.bio = "Developer and technical writer"
-    tagline = "Sharing thoughts on technology and development"
-    
-    # Features
-    tagsEnabled = true
-    searchEnabled = true
     
     # Social Media
     github = "username"
