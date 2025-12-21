@@ -1,0 +1,40 @@
+{{ with .Site.Params.author }}
+<div class="profile">
+    {{ if .avatar }}
+        <div class="avatar">
+            <img src="{{ .avatar }}" alt="{{ .name }}'s avatar" />
+        </div>
+    {{ else if .email }}
+        <div class="avatar">
+            <img src="https://www.gravatar.com/avatar/{{ md5 .email }}?s=150&d=mp" alt="{{ .name }}'s avatar" />
+        </div>
+    {{ else }}
+        <div class="avatar">{{ substr .name 0 1 | upper }}</div>
+    {{ end }}
+    <div class="author-name">{{ .name }}</div>
+    {{ with .description }}<div class="author-bio">{{ . }}</div>{{ end }}
+    
+    <!-- Social Links -->
+    {{ with $.Site.Params.social }}
+    <div class="profile-social">
+        {{ with .github }}
+        <a href="https://github.com/{{ . }}" class="social-link social-link--github" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        {{ end }}
+        
+        {{ with .linkedin }}
+        <a href="https://linkedin.com/in/{{ . }}" class="social-link social-link--linkedin" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        {{ end }}
+        
+        {{ with .codeproject }}
+        <a href="https://www.codeproject.com/members/{{ . }}" class="social-link social-link--codeproject" target="_blank" rel="noopener noreferrer" title="CodeProject">
+            <i class="fas fa-code"></i>
+        </a>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,51 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "head" }}
+    {{ if .Site.Params.disqusShortname }}
+    <script id="dsq-count-scr" src="//{{ .Site.Params.disqusShortname }}.disqus.com/count.js" async></script>
+    {{ end }}
+{{ end }}
+
+{{ define "content" }}
+    <div class="container">
+        <aside class="sidebar">
+            {{ partial "sidebar/profile.html" . }}
+            {{ partial "sidebar/navigation.html" . }}
+        </aside>
+        
+        <main class="main-content">
+            {{ partial "nav.html" . }}
+                
+                <ul class="post-list">
+                    {{ $posts := where .Site.RegularPages "Type" "posts" }}
+                    {{ $paginator := .Paginate $posts }}
+                    {{ range $paginator.Pages }}
+                    <article class="post-card post-card--compact">
+                        <div class="post-card__content">
+                            <h2 class="post-title">
+                                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            </h2>
+                            {{ with .Params.description }}
+                                <div class="post-excerpt post-excerpt--inline">{{ . }}</div>
+                            {{ end }}
+                        </div>
+                        <div class="post-meta">
+                            <span class="post-meta__date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                            {{ if .ReadingTime }}<span class="post-meta__reading">{{ .ReadingTime }} min</span>{{ end }}
+                            {{ if $.Site.Params.disqusShortname }}<span class="post-meta__comments"><i class="far fa-comment"></i> <span class="disqus-comment-count" data-disqus-identifier="{{ .File.UniqueID }}"></span></span>{{ end }}
+                            {{ with .Params.tags }}
+                                <div class="post-tags post-tags--inline">
+                                    {{ range first 3 . }}
+                                        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="post-tag post-tag--small">{{ . }}</a>
+                                    {{ end }}
+                                </div>
+                            {{ end }}
+                        </div>
+                    </article>
+                    {{ end }}
+                </ul>
+            
+            {{ partial "footer/pagination.html" . }}
+        </main>
+    </div>
+{{ end }}

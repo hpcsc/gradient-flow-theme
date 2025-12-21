@@ -1,0 +1,70 @@
+{{ define "title" }}
+    {{ if eq .Data.Plural "categories" }}
+        Categories | {{ .Site.Title }}
+    {{ else if eq .Data.Plural "tags" }}
+        Tags | {{ .Site.Title }}
+    {{ end }}
+{{ end }}
+
+{{ define "content" }}
+    <div class="container">
+        <aside class="sidebar">
+            {{ partial "sidebar/profile.html" . }}
+            {{ partial "sidebar/navigation.html" . }}
+        </aside>
+        
+        <main class="main-content">
+            {{ partial "nav.html" . }}
+            
+            <div class="taxonomy-page">
+                <header class="taxonomy-header">
+                    <h1 class="taxonomy-title">
+                        {{ if eq .Data.Plural "categories" }}
+                            Categories
+                        {{ else if eq .Data.Plural "tags" }}
+                            Tags
+                        {{ end }}
+                    </h1>
+                    <p class="taxonomy-description">
+                        {{ if eq .Data.Plural "categories" }}
+                            Browse posts by category
+                        {{ else if eq .Data.Plural "tags" }}
+                            Browse posts by tag
+                        {{ end }}
+                    </p>
+                </header>
+                
+                {{ if eq .Data.Plural "categories" }}
+                    <div class="taxonomy-grid">
+                        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                            <a href="{{ .Page.RelPermalink }}" class="taxonomy-card category-card">
+                                <div class="taxonomy-card__icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                    </svg>
+                                </div>
+                                <div class="taxonomy-card__content">
+                                    <h3 class="taxonomy-card__title">{{ $name | humanize }}</h3>
+                                    <p class="taxonomy-card__count">{{ len $taxonomy }} posts</p>
+                                </div>
+                            </a>
+                        {{ end }}
+                    </div>
+                {{ else if eq .Data.Plural "tags" }}
+                    <div class="tags-cloud">
+                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                            <a href="{{ .Page.RelPermalink }}" class="tag-cloud__item" style="font-size: {{ math.Mul (math.Log (add (len $taxonomy) 1)) 0.8 }}rem;">
+                                {{ $name }}
+                                <span class="tag-cloud__count">{{ len $taxonomy }}</span>
+                            </a>
+                        {{ end }}
+                    </div>
+                {{ end }}
+                
+                <div class="empty-state" style="display: none;">
+                    <p>No {{ .Data.Singular }}s found.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+{{ end }}

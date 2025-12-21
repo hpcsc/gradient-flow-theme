@@ -1,0 +1,6 @@
+[params]
+    # Ocean Theme Colors
+    primaryColor = "#00b4d8"
+    secondaryColor = "#0077be"
+    tertiaryColor = "#00a8cc"
+    textColor = "#ffffff"

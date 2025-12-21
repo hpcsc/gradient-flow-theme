@@ -1,0 +1,5 @@
+{{ $backgroundBlur := .Site.Params.backgroundBlur | default "rgba(19, 84, 122, 0.3)" }}
+<div class="background-blur" style="background: {{ $backgroundBlur }}; backdrop-filter: blur(3px);"></div>
+
+<!-- Google Analytics (if configured) -->
+{{ template "_internal/google_analytics.html" . }}

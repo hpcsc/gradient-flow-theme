@@ -1,0 +1,82 @@
+{{ if .Site.Params.disqusShortname }}
+<div id="disqus_thread" class="disqus-comments"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = '{{ .Permalink }}';
+        this.page.identifier = '{{ .File.UniqueID }}';
+        this.page.title = '{{ .Title }}';
+        // Force dark theme
+        this.page.remote_auth_s3 = '';
+        this.language = 'en';
+    };
+    
+    // Inject custom CSS into Disqus iframe after it loads
+    function loadDisqusCSS() {
+        var disqusCSS = `
+            <style>
+                body { 
+                    background-color: #1a1a1a !important; 
+                    color: #ffffff !important; 
+                }
+                .post-message { 
+                    background-color: #2a2a2a !important; 
+                    color: #ffffff !important; 
+                    border-radius: 8px !important;
+                }
+                .author { 
+                    color: #58a6ff !important; 
+                }
+                .time-ago { 
+                    color: #cccccc !important; 
+                }
+                a { 
+                    color: #58a6ff !important; 
+                }
+                a:hover { 
+                    color: #79c0ff !important; 
+                }
+                textarea, input[type="text"] { 
+                    background-color: #2a2a2a !important; 
+                    color: #ffffff !important; 
+                    border-color: #444444 !important;
+                }
+                .header { 
+                    color: #ffffff !important; 
+                }
+            </style>
+        `;
+        
+        var observer = new MutationObserver(function(mutations) {
+            var iframe = document.querySelector('#disqus_thread iframe');
+            if (iframe && !iframe.dataset.styled) {
+                iframe.dataset.styled = 'true';
+                setTimeout(function() {
+                    try {
+                        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        if (iframeDoc) {
+                            var styleElement = iframeDoc.createElement('style');
+                            styleElement.innerHTML = disqusCSS;
+                            iframeDoc.head.appendChild(styleElement);
+                        }
+                    } catch (e) {
+                        console.log('Cannot style Disqus iframe:', e);
+                    }
+                }, 1000);
+            }
+        });
+        
+        observer.observe(document.body, {childList: true, subtree: true});
+    }
+    
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://' + '{{ .Site.Params.disqusShortname }}' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        loadDisqusCSS();
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+{{ end }}

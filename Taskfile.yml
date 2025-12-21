@@ -1,0 +1,61 @@
+version: '3'
+
+vars:
+  EXAMPLE_SITE: --source example
+
+tasks:
+  default:
+    cmds:
+      - task: start
+
+  start:
+    desc: Start development server with default theme
+    dir: example
+    cmds:
+      - hugo server --config hugo.toml -D --navigateToChanged
+
+  start:dark:
+    desc: Start development server with dark tech theme
+    dir: example
+    cmds:
+      - hugo server --config hugo.toml,hugo-dark-tech.toml -D --navigateToChanged
+
+  start:ocean:
+    desc: Start development server with ocean theme
+    cmds:
+      - hugo server --config hugo.toml,hugo-ocean.toml -D --navigateToChanged
+    dir: example
+
+  start:purple:
+    desc: Start development server with purple gradient theme
+    cmds:
+      - hugo server --config hugo.toml,hugo-purple.toml -D --navigateToChanged
+    dir: example
+
+  build:
+    desc: Build production site
+    cmds:
+      - hugo {{.EXAMPLE_SITE}}
+
+  clean:
+    desc: Clean build artifacts
+    cmds:
+      - rm -rf example/public/
+      - rm -rf example/resources/
+
+  new:
+    desc: Create new content
+    cmds:
+      - hugo new {{.EXAMPLE_SITE}} {{.CONTENT_TYPE}}
+    vars:
+      CONTENT_TYPE: posts/{{.CLI_ARGS}}
+
+  check:
+    desc: Check site for issues
+    cmds:
+      - hugo check {{.EXAMPLE_SITE}}
+
+  help:
+    desc: Show available commands
+    cmds:
+      - task --list

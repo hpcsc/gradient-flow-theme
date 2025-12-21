@@ -1,0 +1,48 @@
+baseURL = 'https://example.com/'
+languageCode = 'en-us'
+title = 'My Blog - Gradient Flow Theme'
+theme = '../..'
+
+[params]
+    # Site Configuration
+    author.name = "John Doe"
+    author.bio = "Developer and technical writer"
+    tagline = "Sharing thoughts on technology and development"
+    
+    # Features
+    tagsEnabled = true
+    searchEnabled = true
+    
+    # Social Media
+    github = "username"
+    linkedin = "username"
+    
+    # Analytics
+    googleAnalytics = "GA-TRACKING-ID"
+    disqusShortname = "site-shortname"
+    
+    # Favicon
+    favicon = "/favicon.ico"
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 10
+
+  [[menu.main]]
+    name = 'About'
+    url = '/about'
+    weight = 20
+
+  [[menu.main]]
+    name = 'Tags'
+    url = '/tags'
+    weight = 30
+
+[pagination]
+  pagerSize = 3
+
+# Custom CSS/JS
+params.customCSS = ["/css/custom.css"]
+params.customJS = ["/js/custom.js"]

@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+<!-- CSS Variables from config -->
+<style>
+    :root {
+        --primary-color: {{ .Site.Params.primaryColor | default "#58a6ff" }};
+        --secondary-color: {{ .Site.Params.secondaryColor | default "#13547A" }};
+        --tertiary-color: {{ .Site.Params.tertiaryColor | default "#70BEBC" }};
+        --text-color: {{ .Site.Params.textColor | default "#ffffff" }};
+        --font-family: {{ .Site.Params.fontFamily | default "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" | safeCSS }};
+        --code-font: {{ .Site.Params.codeFont | default "'SF Mono', Monaco, 'Cascadia Code', monospace" | safeCSS }};
+        --gradient-start: {{ .Site.Params.secondaryColor | default "#13547A" }};
+        --gradient-end: {{ .Site.Params.tertiaryColor | default "#70BEBC" }};
+    }
+</style>
+
+{{ partial "head/css.html" . }}
+{{ partial "head/meta.html" . }}
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+{{ if .Site.Params.favicon }}
+    <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
+{{ end }}

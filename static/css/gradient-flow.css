@@ -1,0 +1,1124 @@
+/* HPCSC Hugo Theme - Modern Gradient Design */
+
+/* Import modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables - Non-configurable defaults only */
+:root {
+    --primary-color-hover: #79c0ff;
+    --muted-text: rgba(255, 255, 255, 0.8);
+    --background-blur: rgba(19, 84, 122, 0.3);
+    --card-background: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+    --container-max-width: 1200px;
+    --sidebar-width: 280px;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--tertiary-color) 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    gap: 2rem;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sidebar {
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+}
+
+.main-content {
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Background blur effect */
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-blur);
+    backdrop-filter: blur(3px);
+    z-index: -1;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--card-background);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.author-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.author-bio {
+    font-size: 0.9rem;
+    color: var(--muted-text);
+    margin-top: 0.5rem;
+}
+
+/* Profile Social Links */
+.profile-social {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.profile-social .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--card-background);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    transition: all var(--transition-speed) ease;
+    color: var(--text-color);
+}
+
+.profile-social .social-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.profile-social .social-link i {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.profile-social .social-link:hover i {
+    color: var(--primary-color);
+}
+
+.profile-social .social-link--github:hover i {
+    color: #ffffff;
+}
+
+.profile-social .social-link--linkedin:hover i {
+    color: #0077b5;
+}
+
+.profile-social .social-link--codeproject:hover i {
+    color: #ff9900;
+}
+
+/* Navigation Components */
+.nav-card {
+    background: var(--card-background);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.nav-title {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--card-background);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    transition: all var(--transition-speed) ease;
+    color: var(--text-color);
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    transition: color 0.2s ease;
+}
+
+.social-link:hover svg {
+    color: var(--primary-color);
+}
+
+.social-link--github:hover svg {
+    color: #ffffff;
+}
+
+.social-link--linkedin:hover svg {
+    color: #0077b5;
+}
+
+.social-link--codeproject:hover svg {
+    color: #ff9900;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    margin-bottom: 0.25rem;
+}
+
+.nav-list a {
+    color: var(--muted-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all var(--transition-speed) ease;
+    display: block;
+    padding: 0.4rem 0;
+    border-radius: 6px;
+}
+
+.nav-list a:hover {
+    background: var(--card-background);
+    color: var(--text-color);
+    transform: translateX(5px);
+}
+
+/* Header Components */
+.site-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: var(--card-background);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+    background: var(--card-border);
+    transform: translateY(-2px);
+}
+
+.nav-link--home {
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-link--home:hover {
+    background: var(--card-border);
+}
+
+.nav-link.active {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+}
+
+/* Post Components */
+.post-list {
+    list-style: none;
+}
+
+.post-card {
+    background: var(--card-background);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all var(--transition-speed) ease;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+}
+
+.post-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.post-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+}
+
+.post-title a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.post-title a:hover {
+    opacity: 0.8;
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: var(--muted-text);
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.post-excerpt {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Compact post card design */
+.post-card--compact {
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.post-card__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.post-card--compact .post-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+}
+
+.post-excerpt--inline {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+.post-card--compact .post-meta {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    text-align: right;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+}
+
+.post-meta__date {
+    color: var(--muted-text);
+}
+
+.post-meta__reading {
+    font-size: 0.75rem;
+    color: var(--muted-text);
+}
+
+.post-meta__comments {
+    font-size: 0.75rem;
+    color: var(--muted-text);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.post-meta__comments i {
+    font-size: 0.7rem;
+}
+
+.post-tags--inline {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.post-tag--small {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.post-tag--small:hover {
+    opacity: 1;
+}
+
+.post-tags--inline {
+    display: flex;
+    gap: 0.3rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.post-tag--small {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.3rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.post-tag--small:hover {
+    opacity: 1;
+}
+
+/* Single Post Styles */
+.post-single {
+    background: var(--card-background);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.post-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.post-header .post-title {
+    font-size: 2.8rem;
+    font-weight: 200;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.post-tags {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.post-tag {
+    background: var(--card-background);
+    color: var(--text-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.post-tag:hover {
+    background: var(--card-border);
+}
+
+.post-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Post content images */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.post-content figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.post-content figure img {
+    margin: 0 auto;
+}
+
+.post-content figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Lists in post content */
+.post-content ul,
+.post-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.post-content ul {
+    list-style-type: none;
+}
+
+.post-content ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.post-content ul li::before {
+    content: "•";
+    position: absolute;
+    left: -1rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.post-content ol {
+    list-style-position: outside;
+    counter-reset: item;
+}
+
+.post-content ol li {
+    margin-bottom: 0.8rem;
+    padding-left: 0.5rem;
+}
+
+.post-content ol li::marker {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Links in post content */
+.post-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.post-content a:hover {
+    border-bottom-color: var(--primary-color);
+    opacity: 0.8;
+}
+
+/* Links in lists */
+.post-content ul li a,
+.post-content ol li a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    margin: -0.2rem -0.4rem;
+    border-radius: 6px;
+    background: rgba(88, 166, 255, 0.05);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+}
+
+.post-content ul li a:hover,
+.post-content ol li a:hover {
+    background: rgba(88, 166, 255, 0.15);
+    color: var(--primary-color);
+    text-decoration-color: var(--tertiary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(88, 166, 255, 0.2);
+    border-color: var(--primary-color);
+}
+
+/* Nested lists */
+.post-content ul ul,
+.post-content ol ol,
+.post-content ul ol,
+.post-content ol ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-content ul li::before {
+    color: var(--tertiary-color);
+}
+
+.post-content ol li::marker {
+    color: var(--tertiary-color);
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* Taxonomy Pages */
+.taxonomy-page {
+    max-width: 100%;
+}
+
+.taxonomy-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.taxonomy-title {
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.taxonomy-description {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+/* Category Grid */
+.taxonomy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.taxonomy-card {
+    background: var(--card-background);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.taxonomy-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.taxonomy-card__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+.taxonomy-card__content {
+    flex: 1;
+}
+
+.taxonomy-card__title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: var(--text-color);
+}
+
+.taxonomy-card__count {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* Tag Cloud */
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.tag-cloud__item {
+    background: var(--card-background);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all var(--transition-speed) ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 300;
+}
+
+.tag-cloud__item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tag-cloud__count {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Taxonomy List Pages */
+.taxonomy-list {
+    max-width: 100%;
+}
+
+.taxonomy-list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.taxonomy-list__info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.taxonomy-list__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.taxonomy-list__title svg {
+    width: 28px;
+    height: 28px;
+    opacity: 0.8;
+}
+
+.taxonomy-list__count {
+    font-size: 1rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.back-link {
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.back-link:hover {
+    opacity: 1;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    opacity: 0.7;
+}
+
+.post-content code {
+    background: rgba(0, 0, 0, 0.4);
+    color: #f8f8f2;
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--code-font);
+    font-size: 0.9em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.post-content pre {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.post-content pre code {
+    background: none;
+    padding: 0;
+    color: var(--text-color);
+}
+
+.post-content h2 {
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1rem 0;
+    color: var(--text-color);
+    font-weight: 300;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+.post-content h3 {
+    font-size: 1.3rem;
+    margin: 2rem 0 0.8rem 0;
+    color: var(--text-color);
+    font-weight: 300;
+}
+
+/* Related Posts */
+.related-posts {
+    background: var(--card-background);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.related-posts h3 {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.related-list {
+    list-style: none;
+}
+
+.related-list li {
+    margin-bottom: 0.5rem;
+}
+
+.related-list a {
+    color: var(--muted-text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.related-list a:hover {
+    color: var(--text-color);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination-link {
+    padding: 0.75rem 1rem;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--muted-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.pagination-link:hover {
+    color: var(--text-color);
+    border-color: var(--primary-color);
+}
+
+.pagination-link.current {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Disqus Comments Styling */
+.disqus-comments {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+#disqus_thread {
+    font-family: var(--font-family);
+}
+
+/* Override Disqus default styling to match theme */
+#disqus_thread a {
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+#disqus_thread a:hover {
+    color: var(--primary-color-hover) !important;
+    text-decoration: underline !important;
+}
+
+/* Improve Disqus text readability */
+#disqus_thread {
+    font-family: var(--font-family) !important;
+    color: var(--text-color) !important;
+}
+
+/* Disqus comment text */
+#disqus_thread .post-message {
+    color: var(--text-color) !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    margin: 0.5rem 0 !important;
+}
+
+/* Disqus author names */
+#disqus_thread .author {
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+}
+
+/* Disqus timestamps */
+#disqus_thread .time-ago {
+    color: var(--muted-text) !important;
+    font-size: 0.85rem !important;
+}
+
+/* Disqus reply buttons and actions */
+#disqus_thread .post-menu,
+#disqus_thread .vote,
+#disqus_thread .reply {
+    color: var(--muted-text) !important;
+}
+
+#disqus_thread .post-menu:hover,
+#disqus_thread .vote:hover,
+#disqus_thread .reply:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Disqus input fields */
+#disqus_thread textarea,
+#disqus_thread input[type="text"] {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--card-border) !important;
+    color: var(--text-color) !important;
+    border-radius: 6px !important;
+    padding: 0.75rem !important;
+}
+
+#disqus_thread textarea::placeholder,
+#disqus_thread input[type="text"]::placeholder {
+    color: var(--muted-text) !important;
+}
+
+/* Disqus form labels */
+#disqus_thread label {
+    color: var(--text-color) !important;
+    font-weight: 500 !important;
+}
+
+/* Disqus header and load more buttons */
+#disqus_thread .header,
+#disqus_thread .load-more {
+    color: var(--text-color) !important;
+}
+
+/* Disqus community guidelines and footer text */
+#disqus_thread .community,
+#disqus_thread .footer {
+    color: var(--muted-text) !important;
+    font-size: 0.8rem !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .sidebar {
+        margin-bottom: 2rem;
+    }
+    
+    .post-single {
+        padding: 1.5rem;
+    }
+    
+    .disqus-comments {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+}
+    
+    .sidebar {
+        position: static;
+        margin-bottom: 2rem;
+    }
+    
+    .site-title {
+        font-size: 2rem;
+    }
+    
+    .post-header .post-title {
+        font-size: 2.2rem;
+    }
+    
+    .nav-card {
+        padding: 1rem;
+    }
+    
+    .post-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 1.8rem;
+    }
+    
+    .post-header .post-title {
+        font-size: 1.8rem;
+    }
+    
+    .main-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .post-tags {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+}

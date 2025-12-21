@@ -1,0 +1,12 @@
+<nav class="nav-card">
+    <div class="nav-title">Categories</div>
+    <ul class="nav-list">
+        {{ range .Site.Taxonomies.categories }}
+            <li>
+                <a href="{{ .Page.RelPermalink }}">
+                    {{ .Page.Title }} ({{ len .Page.Pages }})
+                </a>
+            </li>
+        {{ end }}
+    </ul>
+</nav>

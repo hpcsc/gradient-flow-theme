@@ -1,0 +1,12 @@
+<!-- Theme main CSS -->
+<link rel="stylesheet" href="{{ "css/gradient-flow.css" | relLangURL }}">
+
+{{ $customCSS := .Site.Params.customCSS }}
+{{ range $customCSS }}
+    <link rel="stylesheet" href="{{ . | relLangURL }}">
+{{ end }}
+
+{{ $customJS := .Site.Params.customJS }}
+{{ range $customJS }}
+    <script src="{{ . | relLangURL }}"></script>
+{{ end }}

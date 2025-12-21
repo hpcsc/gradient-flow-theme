@@ -1,0 +1,16 @@
+name = "gradient-flow"
+license = "MIT"
+licenselink = "https://github.com/hpcsc/gradient-flow-theme/blob/main/LICENSE"
+description = "A modern, responsive Hugo theme with gradient backgrounds and glassmorphism effects"
+homepage = "https://github.com/hpcsc/gradient-flow-theme"
+tags = ["blog", "responsive", "gradient", "glassmorphism", "content-focused", "mobile-friendly"]
+features = ["gradient-backgrounds", "glassmorphism", "responsive", "i18n", "sidebar-navigation", "tags", "categories"]
+min_version = "0.100.0"
+
+[author]
+	name = "David Nguyen"
+	homepage = "https://github.com/hpcsc"
+
+[original]
+	name = "Gradient Flow Theme"
+	description = "Modern Hugo theme with configurable gradient backgrounds and structured navigation"

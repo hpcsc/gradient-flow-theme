@@ -1,0 +1,10 @@
+{{ with .Params.relatedPosts }}
+<div class="related-posts">
+    <h3>{{ i18n "relatedPosts" }}</h3>
+    <ul class="related-list">
+        {{ range . }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}

@@ -1,0 +1,9 @@
+<!-- Navigation partial -->
+<nav class="main-nav">
+    {{ if not (eq .Kind "home") }}
+        <a href="{{ .Site.BaseURL }}" class="nav-link nav-link--home{{ if eq .Permalink "/" }} active{{ end }}">← {{ i18n "home" }}</a>
+    {{ end }}
+    <a href="{{ "/about" | relLangURL }}" class="nav-link{{ if and (eq .Kind "page") (eq .Title "About") }} active{{ end }}">{{ i18n "about" }}</a>
+    <a href="{{ "/categories" | relLangURL }}" class="nav-link{{ if or (eq .Permalink "/categories/") (eq .Permalink "/categories") (eq .Section "categories") }} active{{ end }}">{{ i18n "categories" }}</a>
+    <a href="{{ "/tags" | relLangURL }}" class="nav-link{{ if or (eq .Permalink "/tags/") (eq .Permalink "/tags") (eq .Section "tags") }} active{{ end }}">{{ i18n "tags" }}</a>
+</nav>

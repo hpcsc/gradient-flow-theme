@@ -1,0 +1,29 @@
+[home]
+other = "Home"
+
+[about]
+other = "About"
+
+[categories]
+other = "Categories"
+
+[tags]
+other = "Tags"
+
+[relatedPosts]
+other = "Related Posts"
+
+[newer]
+other = "Newer"
+
+[older]
+other = "Older"
+
+[prevPage]
+other = "Previous page"
+
+[nextPage]
+other = "Next page"
+
+[readMore]
+other = "Read more →"

@@ -1,0 +1,44 @@
+{{ define "title" }}
+    {{ .Title }} | {{ .Site.Title }}
+{{ end }}
+
+{{ define "content" }}
+    <div class="container">
+        <aside class="sidebar">
+            {{ partial "sidebar/profile.html" . }}
+            {{ partial "sidebar/navigation.html" . }}
+        </aside>
+        
+        <main class="main-content">
+            {{ partial "nav.html" . }}
+                
+            <article class="post-single">
+                <header class="post-header">
+                    <h1 class="post-title">{{ .Title }}</h1>
+                    <div class="post-meta">
+                        <span>{{ .Date.Format "January 2, 2006" }}</span>
+                        {{ if .ReadingTime }}<span>{{ .ReadingTime }} min read</span>{{ end }}
+                    </div>
+                    {{ with .Params.tags }}
+                    <div class="post-tags">
+                        {{ range . }}
+                            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="post-tag">{{ . }}</a>
+                        {{ end }}
+                        </div>
+                    {{ end }}
+                </header>
+                    
+                <div class="post-content">
+                    {{ .Content }}
+                </div>
+                
+                {{ with .Params.relatedPosts }}
+                    {{ partial "footer/related-posts.html" . }}
+                {{ end }}
+            </article>
+            
+            <!-- Disqus Comments -->
+            {{ partial "disqus.html" . }}
+        </main>
+    </div>
+{{ end }}
