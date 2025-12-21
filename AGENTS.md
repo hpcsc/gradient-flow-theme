@@ -37,6 +37,6 @@ Use Task for all development commands:
 - Use descriptive filenames following kebab-case convention
 
 ### Configuration
-- Theme customization via `params` in `hugo.toml`
+- Theme customization via `params` in `hugo.yaml`
 - Provide sensible defaults for all colors and settings
 - Support i18n through `/i18n/` translation files

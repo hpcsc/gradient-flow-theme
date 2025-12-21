@@ -56,7 +56,7 @@ Want to contribute back to the theme? Check our:
 ### Common Issues
 
 **Navigation not showing:**
-- Check `config.toml` menu configuration
+- Check `config.yaml` menu configuration
 - Verify content files exist in correct directories
 - Clear Hugo cache (`hugo --gc`)
 

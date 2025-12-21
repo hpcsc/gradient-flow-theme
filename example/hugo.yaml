@@ -1,0 +1,76 @@
+baseURL: 'https://example.com/'
+languageCode: 'en-us'
+title: 'My Blog - Gradient Flow Theme'
+theme: '../..'
+
+params:
+  # Site Configuration
+  author:
+    name: "John Doe"
+    bio: "Developer and technical writer"
+  
+  # Social Media
+  github: "username"
+  linkedin: "username"
+  
+  # Analytics
+  googleAnalytics: "GA-TRACKING-ID"
+  disqusShortname: "site-shortname"
+  
+  # Favicon
+  favicon: "/favicon.ico"
+  
+  # Navigation Configuration
+  # Pages in content/menu/ will automatically appear in navigation dropdown
+  
+  # Custom CSS/JS
+  customCSS: ["/css/custom.css"]
+  customJS: ["/js/custom.js"]
+
+menu:
+  main:
+    - name: 'Home'
+      url: '/'
+      weight: 10
+
+    - name: 'Blog'
+      url: '/posts'
+      weight: 20
+
+    - identifier: 'menu'
+      name: 'Pages'
+      title: 'Site Pages'
+      weight: 30
+
+
+
+    - name: 'Team'
+      parent: 'menu'
+      url: '/menu/team'
+      weight: 32
+
+    - identifier: 'resources'
+      name: 'Resources'
+      title: 'Help & Documentation'
+      weight: 40
+
+    - name: 'Documentation'
+      parent: 'resources'
+      url: '/docs'
+      weight: 41
+
+    - name: 'Support'
+      parent: 'resources'
+      url: '/support'
+      weight: 42
+
+    - name: 'Categories'
+      url: '/categories'
+      weight: 50
+
+    - name: 'Tags'
+      url: '/tags'
+      weight: 60
+
+pagination:
+  pagerSize: 3

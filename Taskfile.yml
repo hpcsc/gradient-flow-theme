@@ -12,25 +12,25 @@ tasks:
     desc: Start development server with default theme
     dir: example
     cmds:
-      - hugo server --config hugo.toml -D --navigateToChanged
+      - hugo server --config hugo.yaml -D --navigateToChanged
 
   start:dark:
     desc: Start development server with dark tech theme
     dir: example
     cmds:
-      - hugo server --config hugo.toml,hugo-dark-tech.toml -D --navigateToChanged
+      - hugo server --config hugo.yaml,hugo-dark-tech.yaml -D --navigateToChanged
 
   start:ocean:
     desc: Start development server with ocean theme
     cmds:
-      - hugo server --config hugo.toml,hugo-ocean.toml -D --navigateToChanged
+      - hugo server --config hugo.yaml,hugo-ocean.yaml -D --navigateToChanged
     dir: example
 
   start:purple:
     desc: Start development server with purple gradient theme
     dir: example
     cmds:
-      - hugo server --config hugo.toml,hugo-purple.toml -D --navigateToChanged
+      - hugo server --config hugo.yaml,hugo-purple.yaml -D --navigateToChanged
 
   build:
     desc: Build production site

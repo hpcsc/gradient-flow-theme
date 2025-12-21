@@ -24,58 +24,57 @@ A modern, responsive Hugo theme with beautiful gradient backgrounds and glassmor
    git clone https://github.com/hpcsc/gradient-flow-theme.git gradient-flow
    ```
 
-2. Update your site's `config.toml`:
-   ```toml
-   theme = "gradient-flow"
+2. Update your site's `config.yaml`:
+   ```yaml
+   theme: "gradient-flow"
    ```
 
 ## ⚙️ Configuration
 
-The theme is highly configurable through your site's `config.toml`:
+The theme is highly configurable through your site's `config.yaml`:
 
-```toml
-[params]
-    # Theme Colors (customize your look)
-    primaryColor = "#58a6ff"       # Accent color for links, highlights
-    secondaryColor = "#13547A"   # Gradient start color
-    tertiaryColor = "#70BEBC"     # Gradient end color
-    textColor = "#ffffff"          # Main text color
-    backgroundBlur = "rgba(19, 84, 122, 0.3)"  # Background blur effect
-    
-    # Typography
-    fontFamily = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-    codeFont = "'SF Mono', Monaco, 'Cascadia Code', monospace"
-    
-    # Author Information
-    [params.author]
-    name = "Your Name"
-    description = "Your professional bio"
-    avatar = "/path/to/avatar.jpg"  # Optional: URL to avatar image
-    email = "your-email@example.com"  # Optional: For Gravatar
-    
-    # Social Media
-    [params.social]
-    github = "username"
-    linkedin = "username"
-    codeproject = "username"
-    
-    # Analytics
-    googleAnalytics = "GA-TRACKING-ID"
-    disqusShortname = "site-disqus"
-    
-    # Custom Assets (arrays of strings)
-    params.customCSS = ["/css/custom.css"]
-    params.customJS = ["/js/custom.js"]
-    
-    # Other
-    favicon = "/favicon.ico"  # Optional
+```yaml
+params:
+  # Theme Colors (customize your look)
+  primaryColor: "#58a6ff"       # Accent color for links, highlights
+  secondaryColor: "#13547A"   # Gradient start color
+  tertiaryColor: "#70BEBC"     # Gradient end color
+  textColor: "#ffffff"          # Main text color
+  backgroundBlur: "rgba(19, 84, 122, 0.3)"  # Background blur effect
+  
+  # Typography
+  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  codeFont: "'SF Mono', Monaco, 'Cascadia Code', monospace"
+  
+  # Author Information
+  author:
+    name: "Your Name"
+    description: "Your professional bio"
+    avatar: "/path/to/avatar.jpg"  # Optional: URL to avatar image
+    email: "your-email@example.com"  # Optional: For Gravatar
+  
+  # Social Media
+  github: "username"
+  linkedin: "username"
+  codeproject: "username"
+  
+  # Analytics
+  googleAnalytics: "GA-TRACKING-ID"
+  disqusShortname: "site-disqus"
+  
+  # Custom Assets (arrays of strings)
+  customCSS: ["/css/custom.css"]
+  customJS: ["/js/custom.js"]
+  
+  # Other
+  favicon: "/favicon.ico"  # Optional
 ```
 
 ### Navigation Configuration
 
 The theme uses Hugo's menu system with automatic content discovery. Here's how to configure your navigation:
 
-#### 1. Basic Menu Items (in `config.toml`)
+#### 1. Basic Menu Items (in `config.yaml`)
 
 ```toml
 [menu]
@@ -111,33 +110,30 @@ content/
 └── ...
 ```
 
-**Add to `config.toml`:**
-```toml
-[menu]
-  [[menu.main]]
-    name = 'Home'
-    url = '/'
-    weight = 10
+**Add to `config.yaml`:**
+```yaml
+menu:
+  main:
+    - name: 'Home'
+      url: '/'
+      weight: 10
 
-  [[menu.main]]
-    identifier = 'menu'
-    name = 'Pages'
-    title = 'Site Pages'
-    weight = 20
+    - identifier: 'menu'
+      name: 'Pages'
+      title: 'Site Pages'
+      weight: 20
 
-  [[menu.main]]
-    name = 'Categories'
-    url = '/categories'
-    weight = 30
+    - name: 'Categories'
+      url: '/categories'
+      weight: 30
 
-  [[menu.main]]
-    name = 'Tags'
-    url = '/tags'
-    weight = 40
+    - name: 'Tags'
+      url: '/tags'
+      weight: 40
 ```
 
 **Content Files (`content/menu/about.md`):**
-```markdown
+```yaml
 ---
 title: "About"
 date: 2023-01-01
@@ -153,39 +149,39 @@ Your about page content here...
 **Benefits:**
 - **Content-driven**: Just add files to `content/menu/` and they appear in navigation
 - **Easy ordering**: Use `weight` in front matter to control menu order
-- **No config updates**: Add new pages without touching `config.toml`
+- **No config updates**: Add new pages without touching `config.yaml`
 - **Organized**: Clear separation of menu content vs blog posts
 
 #### 3. Mixed Approach
 
 Combine both methods for maximum flexibility:
-- Static items in `config.toml` (Home, Categories, Tags)
+- Static items in `config.yaml` (Home, Categories, Tags)
 - Dynamic pages in `content/menu/` (About, Team, Services)
 
 ## 🎨 Customization Examples
 
 ### Dark Tech Theme
-```toml
-[params]
-    primaryColor = "#00b4d8"
-    secondaryColor = "#1a1a1a"
-    tertiaryColor = "#0d1117"
+```yaml
+params:
+  primaryColor: "#00b4d8"
+  secondaryColor: "#1a1a1a"
+  tertiaryColor: "#0d1117"
 ```
 
 ### Ocean Theme
-```toml
-[params]
-    primaryColor = "#00b4d8"
-    secondaryColor = "#0077be"
-    tertiaryColor = "#00a8cc"
+```yaml
+params:
+  primaryColor: "#00b4d8"
+  secondaryColor: "#0077be"
+  tertiaryColor: "#00a8cc"
 ```
 
 ### Purple Gradient
-```toml
-[params]
-    primaryColor = "#8b5cf6"
-    secondaryColor = "#6d28d9"
-    tertiaryColor = "#a855f7"
+```yaml
+params:
+  primaryColor: "#8b5cf6"
+  secondaryColor: "#6d28d9"
+  tertiaryColor: "#a855f7"
 ```
 
 ## 📱 Layout Structure

@@ -51,7 +51,7 @@ We believe in creating web experiences that are both visually stunning and highl
 Ready to create your own beautiful site with Gradient Flow Theme?
 
 1. Clone this theme to your Hugo project
-2. Configure your `hugo.toml` file
+2. Configure your `hugo.yaml` file
 3. Add your content to the `content/` directory
 4. Customize colors and settings to match your brand
 5. Deploy to your favorite hosting platform
