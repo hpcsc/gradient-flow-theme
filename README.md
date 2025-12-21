@@ -72,6 +72,97 @@ The theme is highly configurable through your site's `config.toml`:
     favicon = "/favicon.ico"  # Optional
 ```
 
+### Navigation Configuration
+
+The theme uses Hugo's menu system with automatic content discovery. Here's how to configure your navigation:
+
+#### 1. Basic Menu Items (in `config.toml`)
+
+```toml
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 10
+
+  [[menu.main]]
+    name = 'Categories'
+    url = '/categories'
+    weight = 30
+
+  [[menu.main]]
+    name = 'Tags'
+    url = '/tags'
+    weight = 40
+```
+
+#### 2. Automatic Page Menu (Recommended)
+
+Create a `content/menu/` directory for pages that should appear in a dropdown menu:
+
+**Directory Structure:**
+```
+content/
+├── menu/
+│   ├── _index.md          # Optional section page
+│   ├── about.md          # Page 1
+│   ├── team.md           # Page 2
+│   └── services.md       # Page 3
+├── posts/
+└── ...
+```
+
+**Add to `config.toml`:**
+```toml
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 10
+
+  [[menu.main]]
+    identifier = 'menu'
+    name = 'Pages'
+    title = 'Site Pages'
+    weight = 20
+
+  [[menu.main]]
+    name = 'Categories'
+    url = '/categories'
+    weight = 30
+
+  [[menu.main]]
+    name = 'Tags'
+    url = '/tags'
+    weight = 40
+```
+
+**Content Files (`content/menu/about.md`):**
+```markdown
+---
+title: "About"
+date: 2023-01-01
+weight: 10         # Order in dropdown
+draft: false
+---
+
+# About Page
+
+Your about page content here...
+```
+
+**Benefits:**
+- **Content-driven**: Just add files to `content/menu/` and they appear in navigation
+- **Easy ordering**: Use `weight` in front matter to control menu order
+- **No config updates**: Add new pages without touching `config.toml`
+- **Organized**: Clear separation of menu content vs blog posts
+
+#### 3. Mixed Approach
+
+Combine both methods for maximum flexibility:
+- Static items in `config.toml` (Home, Categories, Tags)
+- Dynamic pages in `content/menu/` (About, Team, Services)
+
 ## 🎨 Customization Examples
 
 ### Dark Tech Theme

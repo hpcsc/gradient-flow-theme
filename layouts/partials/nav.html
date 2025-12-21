@@ -1,27 +1,50 @@
-<!-- Navigation partial -->
+ <!-- Navigation partial -->
+{{ if .Site.Menus.main }}
 <nav class="main-nav">
-    {{ if not (eq .Kind "home") }}
-        <a href="{{ .Site.BaseURL }}" class="nav-link nav-link--home{{ if eq .Permalink "/" }} active{{ end }}">← {{ i18n "home" }}</a>
-    {{ end }}
-    
-    {{ $pages := where (where site.Pages "Type" "page") "Kind" "page" }}
-    {{ $maxPages := .Site.Params.navMaxPages | default 5 }}
-    
-    {{ if le (len $pages) $maxPages }}
-        {{ range sort $pages "Title" }}
-            <a href="{{ .Permalink }}" class="nav-link{{ if eq .Permalink $.Permalink }} active{{ end }}">{{ .Title }}</a>
+    {{ $currentPage := . }}
+    {{ $currentPageURL := $currentPage.RelPermalink }}
+    {{ range sort .Site.Menus.main "Weight" }}
+        {{ $menuURL := .URL }}
+        {{ $isActive := false }}
+        {{ $hasActiveChild := false }}
+        
+        <!-- Check if this menu item is active for regular items -->
+        {{ if or (eq $currentPageURL $menuURL) (and (ne $menuURL "/") (hasPrefix $currentPageURL $menuURL)) }}
+            {{ $isActive = true }}
         {{ end }}
-    {{ else if gt (len $pages) 0 }}
-        <div class="nav-dropdown">
-            <button class="nav-link nav-dropdown-toggle" aria-expanded="false"><i class="fas fa-bars"></i></button>
-            <div class="nav-dropdown-content">
-                {{ range sort $pages "Title" }}
-                    <a href="{{ .Permalink }}" class="nav-link{{ if eq .Permalink $.Permalink }} active{{ end }}">{{ .Title }}</a>
+        
+        {{ if .HasChildren }}
+            <!-- Reset for dropdown items - check if any child is active -->
+            {{ $hasActiveChild = false }}
+            {{ $isActive = false }}
+            
+            {{ range .Children }}
+                {{ $childURL := .URL }}
+                {{ if or (eq $currentPageURL $childURL) (and (ne $childURL "/") (hasPrefix $currentPageURL $childURL)) }}
+                    {{ $hasActiveChild = true }}
                 {{ end }}
+            {{ end }}
+            
+            <div class="nav-dropdown">
+                <button class="nav-link nav-dropdown-toggle{{ if $hasActiveChild }} active{{ end }}" aria-expanded="false">{{ .Name }} <i class="fas fa-chevron-down"></i></button>
+                <div class="nav-dropdown-content">
+                    {{ range .Children }}
+                        {{ $childURL := .URL }}
+                        {{ $childIsActive := false }}
+                        
+                        {{ if eq $currentPageURL $childURL }}
+                            {{ $childIsActive = true }}
+                        {{ else if and (ne $childURL "/") (hasPrefix $currentPageURL $childURL) }}
+                            {{ $childIsActive = true }}
+                        {{ end }}
+                        
+                        <a href="{{ .URL }}" class="nav-link{{ if $childIsActive }} active{{ end }}">{{ .Name }}</a>
+                    {{ end }}
+                </div>
             </div>
-        </div>
+        {{ else }}
+            <a href="{{ .URL }}" class="nav-link{{ if $isActive }} active{{ end }}">{{ .Name }}</a>
+        {{ end }}
     {{ end }}
-    
-    <a href="{{ "/categories" | relLangURL }}" class="nav-link{{ if or (eq .Permalink "/categories/") (eq .Permalink "/categories") (eq .Section "categories") }} active{{ end }}">{{ i18n "categories" }}</a>
-    <a href="{{ "/tags" | relLangURL }}" class="nav-link{{ if or (eq .Permalink "/tags/") (eq .Permalink "/tags") (eq .Section "tags") }} active{{ end }}">{{ i18n "tags" }}</a>
 </nav>
+{{ end }}
