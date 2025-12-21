@@ -3,7 +3,25 @@
     {{ if not (eq .Kind "home") }}
         <a href="{{ .Site.BaseURL }}" class="nav-link nav-link--home{{ if eq .Permalink "/" }} active{{ end }}">← {{ i18n "home" }}</a>
     {{ end }}
-    <a href="{{ "/about" | relLangURL }}" class="nav-link{{ if and (eq .Kind "page") (eq .Title "About") }} active{{ end }}">{{ i18n "about" }}</a>
+    
+    {{ $pages := where (where site.Pages "Type" "page") "Kind" "page" }}
+    {{ $maxPages := .Site.Params.navMaxPages | default 5 }}
+    
+    {{ if le (len $pages) $maxPages }}
+        {{ range sort $pages "Title" }}
+            <a href="{{ .Permalink }}" class="nav-link{{ if eq .Permalink $.Permalink }} active{{ end }}">{{ .Title }}</a>
+        {{ end }}
+    {{ else if gt (len $pages) 0 }}
+        <div class="nav-dropdown">
+            <button class="nav-link nav-dropdown-toggle" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <div class="nav-dropdown-content">
+                {{ range sort $pages "Title" }}
+                    <a href="{{ .Permalink }}" class="nav-link{{ if eq .Permalink $.Permalink }} active{{ end }}">{{ .Title }}</a>
+                {{ end }}
+            </div>
+        </div>
+    {{ end }}
+    
     <a href="{{ "/categories" | relLangURL }}" class="nav-link{{ if or (eq .Permalink "/categories/") (eq .Permalink "/categories") (eq .Section "categories") }} active{{ end }}">{{ i18n "categories" }}</a>
     <a href="{{ "/tags" | relLangURL }}" class="nav-link{{ if or (eq .Permalink "/tags/") (eq .Permalink "/tags") (eq .Section "tags") }} active{{ end }}">{{ i18n "tags" }}</a>
 </nav>
