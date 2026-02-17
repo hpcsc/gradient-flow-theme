@@ -8,21 +8,21 @@ params:
   author:
     name: "John Doe"
     bio: "Developer and technical writer"
-  
+
   # Social Media
   github: "username"
   linkedin: "username"
-  
+
   # Analytics
   googleAnalytics: "GA-TRACKING-ID"
   disqusShortname: "site-shortname"
-  
+
   # Favicon
   favicon: "/favicon.ico"
-  
+
   # Navigation Configuration
   # Pages in content/menu/ will automatically appear in navigation dropdown
-  
+
   # Custom CSS/JS
   customCSS: ["/css/custom.css"]
   customJS: ["/js/custom.js"]
@@ -74,3 +74,12 @@ menu:
 
 pagination:
   pagerSize: 3
+
+# Syntax highlighting
+markup:
+  highlight:
+    style: onedark
+    noClasses: true
+    codeFences: true
+    lineNos: true
+    lineNumbersInTable: false
