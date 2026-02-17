@@ -23,6 +23,34 @@ const theme = {
 };
 ```
 
+Here's a Go example:
+
+```go
+package main
+
+import "fmt"
+
+type Theme struct {
+    PrimaryColor   string
+    SecondaryColor string
+}
+
+func NewTheme(primary, secondary string) *Theme {
+    return &Theme{
+        PrimaryColor:   primary,
+        SecondaryColor: secondary,
+    }
+}
+
+func (t *Theme) GetCSS() string {
+    return fmt.Sprintf(":root {\n    --primary: %s;\n    --secondary: %s;\n}", t.PrimaryColor, t.SecondaryColor)
+}
+
+func main() {
+    theme := NewTheme("#58a6ff", "#1f6feb")
+    fmt.Println(theme.GetCSS())
+}
+
 ## Content Structure
 
 The theme provides a clean, modern layout with:
@@ -39,5 +67,15 @@ The theme provides a clean, modern layout with:
 - Accessibility-focused design
 - Search functionality
 - Mobile-optimized typography
+
+## Browser Support
+
+| Browser | Version | Support Level |
+|---------|---------|----------------|
+| Chrome  | 90+     | Full           |
+| Firefox | 88+     | Full           |
+| Safari  | 14+     | Full           |
+| Edge    | 90+     | Full           |
+| Opera   | 76+     | Full           |
 
 This theme demonstrates all the features available for creating stunning Hugo sites with a focus on content and modern design aesthetics.
