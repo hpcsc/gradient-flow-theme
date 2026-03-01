@@ -1,0 +1,6 @@
+<figure{{ if .Get "class" }} class="{{ .Get "class" }}"{{ end }}>
+    <a href="{{ .Get "src" }}" class="glightbox" data-gallery="{{ with .Get "gallery" }}{{ . }}{{ end }}"{{ with .Get "caption" }} data-title="{{ . }}"{{ end }}>
+        <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}"{{ with .Get "width" }} width="{{ . }}"{{ end }}{{ with .Get "height" }} height="{{ . }}"{{ end }} />
+    </a>
+    {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

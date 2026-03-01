@@ -9,6 +9,12 @@ description: "A comprehensive introduction to the Gradient Flow Hugo theme, show
 
 This is a sample blog post showing the HPCSC theme's capabilities.
 
+## Image Gallery
+
+Click on the image below to see it expand to full size:
+
+{{< figure src="/images/sample.jpg" caption="Sample image - click to expand" >}}
+
 ## Typography & Code
 
 Here's how code looks in the theme:
