@@ -1125,7 +1125,18 @@ body {
     font-size: 0.8rem !important;
 }
 
-/* Responsive Design */
+@media (min-width: 1400px) {
+    :root {
+        --container-max-width: 1400px;
+    }
+}
+
+@media (min-width: 1600px) {
+    :root {
+        --container-max-width: 1600px;
+        --sidebar-width: 320px;
+    }
+}
 @media (max-width: 1024px) {
     .container {
         grid-template-columns: 1fr;
