@@ -25,6 +25,8 @@
 <!-- GLightbox for image expansion -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
 
+{{ partial "mermaid.html" . }}
+
 {{ if .Site.Params.favicon }}
     <link rel="icon" href="{{ .Site.Params.favicon | absURL }}">
 {{ end }}
