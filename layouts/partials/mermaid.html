@@ -1,0 +1,33 @@
+{{ $primaryColor := .Site.Params.mermaid.primaryColor | default "#00e5ff" }}
+{{ $lineColor := .Site.Params.mermaid.lineColor | default "#79c0ff" }}
+{{ $bg := .Site.Params.mermaid.background | default "#0d1117" }}
+{{ $textColor := .Site.Params.mermaid.textColor | default "#f0f6fc" }}
+
+{{ if findRE "class=\"mermaid\"" .Content }}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '{{ $primaryColor }}',
+                primaryTextColor: '#000000',
+                primaryBorderColor: '{{ $primaryColor }}',
+                lineColor: '{{ $lineColor }}',
+                secondaryColor: '{{ $bg }}',
+                tertiaryColor: '{{ $bg }}',
+                background: '{{ $bg }}',
+                mainBkg: '{{ $primaryColor }}30',
+                nodeBorder: '{{ $primaryColor }}',
+                clusterBkg: '#21262d',
+                clusterBorder: '#8b949e',
+                titleColor: '{{ $textColor }}',
+                edgeLabelBackground: '#21262d',
+                textColor: '{{ $textColor }}',
+                fontSize: '16px'
+            }
+        });
+    });
+</script>
+{{ end }}
